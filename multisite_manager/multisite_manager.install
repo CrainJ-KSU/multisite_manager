@@ -1,0 +1,58 @@
+<?php 
+
+/**
+ * Implements hook_schema().
+ */
+function multisite_manager_schema() {
+    $schema = [];
+
+    $schema['drupal_site'] = [
+        'description' => 'Stores information about CECS Drupal Sites.',
+        'fields' => [
+            'site_id' => [
+                'description' => 'Unique ID of the site.',
+                'type' => 'serial',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ],
+            'name' => [
+                'description' => 'The name of the site.',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ],
+            'created' => [
+                'description' => 'When the site was added.',
+                'type' => 'int',
+                'length' => 11,
+                'not null' => TRUE,
+                'default' => 0,
+            ],
+            'subdomain' => [
+                'description' => 'The name of the subdomain for the site drupal site.',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ],
+        ],
+    ];
+
+    return $schema;
+}
+
+/**
+ * Implements hook_install()
+ */
+function multisite_manager_install(){
+    \Drupal::messenger()->addMessage(t('Awesome! You have a site!'));
+}
+
+/**
+ * Implements hook_uninstall()
+ */
+function multisite_manager_uninstall()
+{
+  \Drupal::messenger()->addMessage(t('Oh no! Please re-install me!'), 'warning');
+}

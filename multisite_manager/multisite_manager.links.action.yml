@@ -1,0 +1,5 @@
+multisite_manager.site_add:
+  route_name: multisite_manager.site_add
+  title: 'Add New Site'
+  appears_on:
+    - multisite_manager.site_list

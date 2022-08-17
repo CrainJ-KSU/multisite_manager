@@ -1,0 +1,34 @@
+multisite_manager.site_list:
+  path: '/site-list'
+  defaults: 
+    _controller: '\Drupal\multisite_manager\Controller\SiteManagerController::siteList'
+    _title: 'CECS Drupal 9 Sites'
+  requirements: 
+    _permission: 'administer users'
+
+
+multisite_manager.admin_settings:
+  path: '/admin/config/services/multisite-manager'
+  defaults: 
+    _form: '\Drupal\multisite_manager\Form\SettingsForm'
+    _title: 'Multisite Manager settings'
+  requirements: 
+    _permission: 'access administration pages'
+  option:
+    _admin_route: TRUE
+
+multisite_manager.site_edit:
+  path: 'site/{site_id}/edit'
+  defaults:
+    _form: 'Drupal\multisite_manager\Form\SiteEditForm'
+    _title: 'Edit Site'
+  requirements:
+    _permission: 'administer site'
+
+multisite_manager.site_add:
+  path: 'site/add'
+  defaults:
+    _form: 'Drupal\multisite_manager\Form\SiteEditForm'
+    _title: 'Add Site'
+  requirements:
+    _permission: 'administer site'

@@ -1,0 +1,6 @@
+name: Multisite Manager
+type: module
+description: 'Multisite Manager for Drupal 9'
+package: 'CECS Custom Modules'
+version: '8.x-1.0'
+core_version_requirement: ^8.8 || ^9

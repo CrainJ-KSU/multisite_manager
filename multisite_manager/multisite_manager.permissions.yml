@@ -1,0 +1,4 @@
+administer site:
+  title: 'Administer Sites'
+  description: 'Administer CECS Drupal Sites'
+  restrict access: TRUE
